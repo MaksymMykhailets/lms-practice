@@ -4,13 +4,13 @@ import { TaskForm } from "./TaskForm/TaskForm";
 import { TaskList } from "./TaskList/TaskList";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { fetchTasks } from "redux/operations";
-import { getError, getIsLoading } from "../redux/selectors";
+import { fetchTasks } from "../redux/operations";
+import { selectIsLoading, selectError } from "../redux/selectors";
 
 export const App = () => {
   const dispatch = useDispatch();
-  const isLoading = useSelector(getIsLoading);
-  const error = useSelector(getError);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
 
   useEffect(() => {
     dispatch(fetchTasks());
